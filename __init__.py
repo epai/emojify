@@ -1,1 +1,1 @@
-from emojify import emojify_words
+from .emojify import emojify_words
