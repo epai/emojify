@@ -25,11 +25,7 @@ def emojify_words(words, slack_emoji=':garlic:'):
         else:
             emojied = emojify_word(word, slack_emoji)
         result += emojied + '\n \n'
-
-    return '\"{words}\" emojified with {emoji}:\n\n{emojied}'.format(
-        words=' '.join(words),
-        emoji=slack_emoji,
-        emojied=result)
+    return result
 
 @click.command()
 @click.option('--emoji', '-e', default=':garlic:', help='Slack emoji shortcut')

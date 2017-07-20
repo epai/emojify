@@ -1,6 +1,6 @@
 delim = '---'
 
-index = 'abcdefghijklmnopqrstuvwxyz-?!.'
+accepted = 'abcdefghijklmnopqrstuvwxyz-?!.'
 
 letters = \
 """
@@ -188,9 +188,11 @@ letters = [l[1:-1] for l in letters]
 
 def get_letter(letter):
     try:
-        letter_index = index.find(letter.lower())
-    except LookupError:
-        raise LookupError("Only ascii letters permitted, not '{}'".format(letter))
+        letter_index = accepted.index(letter.lower())
+    except ValueError:
+        raise LookupError(
+            "Invalid character '{}'.  Acceptable characters: '{}'"
+            .format(letter, accepted))
     else:
         letter = letters[letter_index]
         lines = letter.split('\n')
