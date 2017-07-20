@@ -3,7 +3,7 @@ import click
 import clipboard
 import pyphen
 
-from letters import get_word, letter_length
+from .letters import get_word, letter_length
 
 hyphen = pyphen.Pyphen(lang='en')
 
